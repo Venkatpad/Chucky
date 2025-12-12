@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Menu - Order Online</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="logo">🍽️ FreshBite</h1>
+                <p class="tagline">Savor the Flavor</p>
+            </div>
+            <div class="cart-icon">
+                <button class="cart-btn" id="cartBtn">
+                    <span class="cart-icon-svg">🛒</span>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Category Navigation -->
+        <nav class="category-nav">
+            <button class="category-btn active" data-category="all">All Items</button>
+            <button class="category-btn" data-category="coffees">☕ Coffees</button>
+            <button class="category-btn" data-category="snacks">🥐 Snacks</button>
+            <button class="category-btn" data-category="meals">🍽️ Meals</button>
+        </nav>
+
+        <!-- Menu Items Grid -->
+        <main class="menu-container">
+            <div class="menu-grid" id="menuGrid">
+                <!-- Menu items will be dynamically loaded here -->
+            </div>
+        </main>
+
+        <!-- Cart Sidebar -->
+        <aside class="cart-sidebar" id="cartSidebar">
+            <div class="cart-header">
+                <h2>Your Order</h2>
+                <button class="close-btn" id="closeCart">&times;</button>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <p class="empty-cart">Your cart is empty</p>
+            </div>
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="subtotal">$0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Tax (10%):</span>
+                    <span id="tax">$0.00</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total:</span>
+                    <span id="total">$0.00</span>
+                </div>
+            </div>
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </aside>
+
+        <!-- Overlay for cart -->
+        <div class="overlay" id="overlay"></div>
+
+        <!-- Item Detail Modal -->
+        <div class="modal" id="itemModal">
+            <div class="modal-content">
+                <button class="modal-close" id="modalClose">&times;</button>
+                <div class="modal-body">
+                    <img class="modal-image" id="modalImage" src="" alt="">
+                    <div class="modal-details">
+                        <h2 id="modalTitle"></h2>
+                        <p class="modal-category" id="modalCategory"></p>
+                        <p class="modal-description" id="modalDescription"></p>
+                        <div class="modal-price-section">
+                            <span class="modal-price" id="modalPrice"></span>
+                        </div>
+                        <div class="quantity-selector">
+                            <button class="qty-btn" id="decreaseQty">−</button>
+                            <input type="number" class="qty-input" id="qtyInput" value="1" min="1">
+                            <button class="qty-btn" id="increaseQty">+</button>
+                        </div>
+                        <button class="add-to-cart-btn" id="addToCartBtn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
