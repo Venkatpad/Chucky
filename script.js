@@ -5,7 +5,7 @@ const menuItems = [
         id: 1,
         name: "Espresso",
         category: "coffees",
-        price: 3.50,
+        price: 150,
         description: "Strong and bold single shot of espresso",
         image: "https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=500&h=400&fit=crop"
     },
@@ -13,7 +13,7 @@ const menuItems = [
         id: 2,
         name: "Cappuccino",
         category: "coffees",
-        price: 4.50,
+        price: 200,
         description: "Creamy cappuccino with velvety foam",
         image: "https://images.unsplash.com/photo-1572442691411-fd4a76ff6e0f?w=500&h=400&fit=crop"
     },
@@ -21,7 +21,7 @@ const menuItems = [
         id: 3,
         name: "Latte",
         category: "coffees",
-        price: 4.75,
+        price: 220,
         description: "Smooth latte with steamed milk",
         image: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=500&h=400&fit=crop"
     },
@@ -29,7 +29,7 @@ const menuItems = [
         id: 4,
         name: "Americano",
         category: "coffees",
-        price: 3.99,
+        price: 180,
         description: "Classic americano with hot water",
         image: "https://images.unsplash.com/photo-1559056169-641ef2588b70?w=500&h=400&fit=crop"
     },
@@ -37,7 +37,7 @@ const menuItems = [
         id: 5,
         name: "Macchiato",
         category: "coffees",
-        price: 4.25,
+        price: 190,
         description: "Bold espresso marked with a touch of foam",
         image: "https://images.unsplash.com/photo-1517668808822-9ebb02ae2a0e?w=500&h=400&fit=crop"
     },
@@ -47,7 +47,7 @@ const menuItems = [
         id: 6,
         name: "Croissant",
         category: "snacks",
-        price: 3.99,
+        price: 180,
         description: "Buttery and flaky French croissant",
         image: "https://images.unsplash.com/photo-1585080199000-c9fcceb89180?w=500&h=400&fit=crop"
     },
@@ -55,7 +55,7 @@ const menuItems = [
         id: 7,
         name: "Chocolate Chip Cookie",
         category: "snacks",
-        price: 2.99,
+        price: 120,
         description: "Chewy chocolate chip cookie",
         image: "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=500&h=400&fit=crop"
     },
@@ -63,7 +63,7 @@ const menuItems = [
         id: 8,
         name: "Blueberry Muffin",
         category: "snacks",
-        price: 4.49,
+        price: 200,
         description: "Fresh blueberry muffin with sweet glaze",
         image: "https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=500&h=400&fit=crop"
     },
@@ -71,7 +71,7 @@ const menuItems = [
         id: 9,
         name: "Almond Biscotti",
         category: "snacks",
-        price: 3.49,
+        price: 150,
         description: "Crunchy almond biscotti perfect for dipping",
         image: "https://images.unsplash.com/photo-1548365328-c9403f173fbf?w=500&h=400&fit=crop"
     },
@@ -79,7 +79,7 @@ const menuItems = [
         id: 10,
         name: "Scone with Jam",
         category: "snacks",
-        price: 4.99,
+        price: 220,
         description: "Soft scone served with clotted cream and jam",
         image: "https://images.unsplash.com/photo-1599599810694-b3fa3a51b5a5?w=500&h=400&fit=crop"
     },
@@ -89,7 +89,7 @@ const menuItems = [
         id: 11,
         name: "Caesar Salad",
         category: "meals",
-        price: 9.99,
+        price: 450,
         description: "Fresh romaine lettuce with parmesan and croutons",
         image: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=500&h=400&fit=crop"
     },
@@ -97,7 +97,7 @@ const menuItems = [
         id: 12,
         name: "Grilled Chicken Sandwich",
         category: "meals",
-        price: 12.99,
+        price: 580,
         description: "Juicy grilled chicken with fresh vegetables",
         image: "https://images.unsplash.com/photo-1562547256-a9a87cbf6e7e?w=500&h=400&fit=crop"
     },
@@ -105,7 +105,7 @@ const menuItems = [
         id: 13,
         name: "Pasta Carbonara",
         category: "meals",
-        price: 14.99,
+        price: 680,
         description: "Classic Italian pasta with creamy sauce",
         image: "https://images.unsplash.com/photo-1612874742237-415c69f18133?w=500&h=400&fit=crop"
     },
@@ -113,7 +113,7 @@ const menuItems = [
         id: 14,
         name: "Beef Burger",
         category: "meals",
-        price: 13.49,
+        price: 620,
         description: "Premium beef burger with all the toppings",
         image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&h=400&fit=crop"
     },
@@ -121,7 +121,7 @@ const menuItems = [
         id: 15,
         name: "Fish & Chips",
         category: "meals",
-        price: 11.99,
+        price: 540,
         description: "Crispy fish with golden chips and tartar sauce",
         image: "https://images.unsplash.com/photo-1612231066579-3c83e8e9e3e7?w=500&h=400&fit=crop"
     }
@@ -157,6 +157,9 @@ const addToCartBtn = document.getElementById("addToCartBtn");
 
 let selectedItem = null;
 
+// Currency Symbol
+const CURRENCY_SYMBOL = "₹";
+
 // Initialize
 document.addEventListener("DOMContentLoaded", () => {
     renderMenuItems();
@@ -178,7 +181,7 @@ function renderMenuItems() {
                 <h3 class="item-name">${item.name}</h3>
                 <p class="item-description">${item.description}</p>
                 <div class="item-footer">
-                    <span class="item-price">$${item.price.toFixed(2)}</span>
+                    <span class="item-price">${CURRENCY_SYMBOL}${item.price}</span>
                     <button class="quick-add-btn" onclick="addToCartQuick(event, ${item.id})">+ Add</button>
                 </div>
             </div>
@@ -232,7 +235,7 @@ function openItemModal(itemId) {
     itemModalTitle.textContent = selectedItem.name;
     itemModalCategory.textContent = selectedItem.category;
     itemModalDescription.textContent = selectedItem.description;
-    itemModalPrice.textContent = `$${selectedItem.price.toFixed(2)}`;
+    itemModalPrice.textContent = `${CURRENCY_SYMBOL}${selectedItem.price}`;
     qtyInput.value = 1;
 
     modal.classList.add("show");
@@ -301,7 +304,7 @@ function renderCartItems() {
             <img src="${item.image}" alt="${item.name}" class="cart-item-image" onerror="this.src='https://via.placeholder.com/80?text=${item.name}'">
             <div class="cart-item-details">
                 <div class="cart-item-name">${item.name}</div>
-                <div class="cart-item-price">$${item.price.toFixed(2)}</div>
+                <div class="cart-item-price">${CURRENCY_SYMBOL}${item.price}</div>
                 <div class="cart-item-controls">
                     <button class="cart-qty-btn" onclick="updateItemQuantity(${item.id}, -1)">−</button>
                     <span class="cart-qty">${item.quantity}</span>
@@ -342,9 +345,9 @@ function updateCartSummary() {
     const tax = subtotal * 0.10;
     const total = subtotal + tax;
 
-    subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
-    taxElement.textContent = `$${tax.toFixed(2)}`;
-    totalElement.textContent = `$${total.toFixed(2)}`;
+    subtotalElement.textContent = `${CURRENCY_SYMBOL}${subtotal.toFixed(2)}`;
+    taxElement.textContent = `${CURRENCY_SYMBOL}${tax.toFixed(2)}`;
+    totalElement.textContent = `${CURRENCY_SYMBOL}${total.toFixed(2)}`;
 }
 
 // Open Cart Sidebar
